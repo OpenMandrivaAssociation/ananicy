@@ -1,6 +1,6 @@
 Name:		ananicy
 Version:	2.0.0
-Release:	1
+Release:	2
 Summary:	ANother Auto NICe daemon
 License:	GPLv3+
 URL:		https://github.com/Nefelim4ag/Ananicy
@@ -15,7 +15,7 @@ ANother Auto NICe daemon.
 
 %prep
 %autosetup -n Ananicy-%{version} -p1
-sed -i 's|#!/usr/bin/env python3|#%{_python}|' ananicy.py
+sed -i 's|#!/usr/bin/env python3|#!%{__python}|' ananicy.py
 
 %build
 
