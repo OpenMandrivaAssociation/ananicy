@@ -22,9 +22,15 @@ sed -i 's|#!/usr/bin/env python3|#!%{__python}|' ananicy.py
 %install
 %make_install PREFIX="%{buildroot}"
 
+install -d %{buildroot}%{_presetdir}
+cat > %{buildroot}%{_presetdir}/86-ananicy.preset << EOF
+enable ananicy.service
+EOF
+
 %files
 %dir %{_sysconfdir}/ananicy.d
 %config(noreplace) %{_sysconfdir}/ananicy.d/ananicy.conf
 %config %{_sysconfdir}/ananicy.d/00-*
 %{_bindir}/%{name}
 %{_unitdir}/ananicy.service
+%{_presetdir}/86-ananicy.preset
