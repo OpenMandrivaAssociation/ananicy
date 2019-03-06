@@ -21,11 +21,10 @@ sed -i 's|#!/usr/bin/env python3|#%{_python}|' ananicy.py
 
 %install
 %make_install PREFIX="%{buildroot}"
-mv "%{buildroot}/lib" "%{buildroot}%{_prefix}"
 
 %files
-%{_bindir}/%{name}
+%dir %{_sysconfdir}/ananicy.d
 %config(noreplace) %{_sysconfdir}/ananicy.d/ananicy.conf
 %config %{_sysconfdir}/ananicy.d/00-*
-%{_sysconfdir}/ananicy.d
+%{_bindir}/%{name}
 %{_unitdir}/ananicy.service
