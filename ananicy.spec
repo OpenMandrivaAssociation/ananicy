@@ -1,6 +1,6 @@
 Name:		ananicy
 Version:	2.0.0
-Release:	2
+Release:	3
 Summary:	ANother Auto NICe daemon
 License:	GPLv3+
 URL:		https://github.com/Nefelim4ag/Ananicy
