@@ -1,5 +1,5 @@
 Name:		ananicy
-Version:	2.2.0
+Version:	2.2.1
 Release:	1
 Summary:	ANother Auto NICe daemon
 License:	GPLv3+
