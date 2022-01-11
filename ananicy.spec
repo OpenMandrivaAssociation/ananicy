@@ -7,7 +7,7 @@ URL:		https://github.com/Nefelim4ag/Ananicy
 Source0:	https://github.com/Nefelim4ag/Ananicy/archive/refs/tags/%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
-BuildRequires:	systemd-macros
+BuildRequires:	systemd-rpm-macros
 Requires:	schedtool
 
 %description
