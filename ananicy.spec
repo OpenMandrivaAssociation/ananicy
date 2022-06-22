@@ -1,6 +1,6 @@
 Name:		ananicy
 Version:	2.2.1
-Release:	1
+Release:	2
 Summary:	ANother Auto NICe daemon
 License:	GPLv3+
 URL:		https://github.com/Nefelim4ag/Ananicy
@@ -20,12 +20,21 @@ sed -i 's|#!/usr/bin/env python3|#!%{__python}|' ananicy.py
 %build
 
 %install
-%make_install PREFIX="%{buildroot}"
+%make_install PREFIX="%{buildroot}" A_SERVICE=%{buildroot}%{_unitdir}/ananicy.service
 
 install -d %{buildroot}%{_presetdir}
 cat > %{buildroot}%{_presetdir}/86-ananicy.preset << EOF
 enable ananicy.service
 EOF
+
+%post
+%systemd_post ananicy.service
+
+%preun
+%systemd_preun ananicy.service
+
+%postun
+%systemd_postun_with_restart ananicy.service
 
 %files
 %dir %{_sysconfdir}/ananicy.d
